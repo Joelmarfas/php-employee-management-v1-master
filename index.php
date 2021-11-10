@@ -17,12 +17,22 @@
   <title>Employee Management Project</title>
 </head>
 
-<body class="d-flex justify-content-center">
+<body>
+  <div class="logo">
+    <a class="navbar-brand" href="#">
+      <img src="https://i2.wp.com/assemblerschool.com/wp-content/uploads/2020/11/LOGO-ORG.png?fit=479%2C131" alt="logo"
+        height="50">
+    </a>
+  </div>
+  <!-- <div>
+    <h2>Student Management Dashboard</h2>
+  </div> -->
+
   <div class="container">
     <div class="d-flex justify-content-center h-100">
-      <div class="card">
-        <div class="card-header">
-          <h3>Sign In</h3>
+      <div class=" card">
+        <div class="title">
+          <h2>Student <br />Management <br /> Dashboard</h2>
           <!-- <div class="d-flex justify-content-end social_icon">
             <span><i class="fab fa-facebook-square"></i></span>
             <span><i class="fab fa-google-plus-square"></i></span>
@@ -44,22 +54,22 @@
               </div>
               <input type="password" class="form-control" placeholder="password" name="password">
             </div>
-            <!-- <div class="row align-items-center remember">
+            <div class="row align-items-center remember">
               <input type="checkbox">Remember Me
-            </div> -->
+            </div>
             <div class="form-group">
               <input type="submit" value="Login" class="btn float-right login_btn">
             </div>
           </form>
         </div>
-        <!-- <div class="card-footer">
+        <div class="card-footer">
           <div class="d-flex justify-content-center links">
             Don't have an account?<a href="#">Sign Up</a>
           </div>
           <div class="d-flex justify-content-center">
             <a href="#">Forgot your password?</a>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>

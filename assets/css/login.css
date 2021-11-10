@@ -1,14 +1,17 @@
 /* Made with love by Mutiullah Samim*/
 
-@import url('https://fonts.googleapis.com/css?family=Numans');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400&display=swap');
 
 html,body{
-background-image: url('https://getwallpapers.com/wallpaper/full/8/3/e/198252.jpg');
+background-image: url('https://www.happyteams.io/hubfs/how%20does%20happy%20teams%20work.jpg');
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
-font-family: 'Numans', sans-serif;
+font-family: 'Titillium Web', sans-serif;
+padding-bottom: 45px;
 }
+
+
 
 .container{
 height: 100%;
@@ -16,7 +19,7 @@ align-content: center;
 }
 
 .card{
-height: 370px;
+height: 425px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
@@ -77,7 +80,7 @@ width: 100px;
 
 .login_btn:hover{
 color: black;
-background-color: white;
+background-color: #d8ad2b;
 }
 
 .links{
@@ -86,4 +89,13 @@ color: white;
 
 .links a{
 margin-left: 4px;
+}
+
+.logo {
+  margin: 0 0 0 20px;
+}
+
+.title {
+  color: white;
+  margin: 15px 0px 0px 20px;
 }

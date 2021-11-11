@@ -11,6 +11,13 @@
  */
 function checkSession()
 {
+  session_start(); //Cuando se ejecuta el session start es cuando se crea la cookie
+
+if(!isset($_SESSION["username"]))
+{
+  header("Location:index.php");
+}
+
 }
 
 /**
@@ -52,7 +59,7 @@ if($passworddb === $passWord && $usernamedb === $userName)
 }
 else
 {
-  header("Location: ./index.php");
+  header("Location: ../index.php");
 }
 
 

@@ -1,15 +1,29 @@
 <?php
 
-session_start();
+require_once("./sessionHelper.php");
 
-$userName = $_POST["username"];
-$passWord = $_POST["password"];
+authuser();
 
-$_SESSION["username"] = $userName;
-$_SESSION["password"] = $passWord;
 
-echo "username: ".$userName."<br/>";
-echo "password: ".$passWord;
-echo "<br/>";
-echo "session username: ".$_SESSION["username"];
-?>
+// $sessionid = session_id();
+
+// unset all session variables
+// unset($_SESSION);
+
+// destroy session cookie
+// if (ini_get("session.use_cokie")) {
+//   $params = session_get_cookie_params();
+//   setcookie(
+//     session_name(),
+//     "",
+//     time() = 42000,
+//     $params["path"],
+//     $params["domain"],
+//     $params["secure"],
+//     $params["httponly"],
+//   );
+// }
+
+//destroy the sessin
+// session_destroy();
+// ?>

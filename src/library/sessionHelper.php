@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * This function must first check where are we
  *
@@ -15,7 +16,7 @@ function checkSession()
 
 if(!isset($_SESSION["username"]))
 {
-  header("Location:index.php");
+  header("Location: ../../index.php");
 }
 
 }
@@ -37,32 +38,22 @@ function authUser()
 
   session_start();
 
-
 $userName = $_POST["username"];
 $passWord = $_POST["password"];
 
 $_SESSION["username"] = $userName;
 $_SESSION["password"] = $passWord;
 
+checkUser();
 // echo "username: ".$userName."<br/>";
 // echo "password: ".$passWord;
 // echo "<br/>";
 // echo "session username: ".$_SESSION["username"];
 
-//Contect to DataBase
-$usernamedb="joel";
-$passworddb="123456";
 
-if($passworddb === $passWord && $usernamedb === $userName)
-{
-  header("Location: ../dashboard.php");
-}
-else
-{
-  header("Location: ../../index.php");
-}
-
-
+// echo "<pre>";
+// var_dump($json["users"][0]["name"]) ;
+// var_dump($json);
 
 
 }
@@ -71,8 +62,32 @@ else
  * This function must emulate a database user search and return
  * true in case email and password matches
  */
-function checkUser(string $email, string $pass)
+function checkUser()
 {
+  //Contect to DataBase
+  $userName = $_POST["username"];
+$passWord = $_POST["password"];
+
+$_SESSION["username"] = $userName;
+$_SESSION["password"] = $passWord;
+
+$string = file_get_contents("../../resources/users.json");
+$json = json_decode($string, true);
+
+  $usernamedb=$json["users"][0]["name"];
+$passworddb=$json["users"][0]["password"];
+
+
+if($passworddb === $passWord && $usernamedb === $userName)
+{
+  // var_dump("Es correcto") ;
+  header("Location: ../dashboard.php");
+}
+else
+{
+  // echo "No es puto correcto";
+  header("Location: ../../index.php");
+}
 }
 
 /**
@@ -87,6 +102,7 @@ function destroySessionCookie()
  */
 function checkLoginError()
 {
+
 }
 
 /**

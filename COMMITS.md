@@ -8,3 +8,4 @@
 5. session login validation check
 6. Username print dinamically in dashboard.php
 7. New index.php created. LogOut function created + Session destroyed.
+8. redirection bug index.php fixed

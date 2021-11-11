@@ -3,6 +3,7 @@
 require_once("./sessionHelper.php");
 
 authuser();
+// header("Location: ./sessionHelper.php");
 
 
 // $sessionid = session_id();

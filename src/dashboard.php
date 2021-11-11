@@ -2,7 +2,7 @@
 <?php
 require_once("./library/sessionHelper.php");
 checkSession();
-$userName = $_SESSION["username"];
+$userName = $_SESSION["username"]; //$_SESSION["username]; en linea 54.
 
 
 // session_start(); //Cuando se ejecuta el session start es cuando se crea la cookie
@@ -34,7 +34,7 @@ $userName = $_SESSION["username"];
 
 <body>
   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Alumni/Employee Dashboard</a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Alumni Dashboard</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
       data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -49,11 +49,11 @@ $userName = $_SESSION["username"];
       </li>
     </ul>
   </header>
-  <div>
+  <!-- <div>
     <h1>Welcome to the Dashboard,
       <?=$userName?>.
     </h1>
-  </div>
+  </div> -->
 </body>
 
 </html>

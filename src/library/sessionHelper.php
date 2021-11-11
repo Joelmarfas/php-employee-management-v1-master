@@ -44,6 +44,8 @@ $passWord = $_POST["password"];
 $_SESSION["username"] = $userName;
 $_SESSION["password"] = $passWord;
 
+// "password": "$2y$10$nuh1LEwFt7Q2/wz9/CmTJO91stTBS4cRjiJYBY3sVCARnllI.wzBC",
+
 checkUser();
 // echo "username: ".$userName."<br/>";
 // echo "password: ".$passWord;
@@ -65,7 +67,7 @@ checkUser();
 function checkUser()
 {
   //Contect to DataBase
-  $userName = $_POST["username"];
+$userName = $_POST["username"];
 $passWord = $_POST["password"];
 
 $_SESSION["username"] = $userName;
@@ -74,7 +76,7 @@ $_SESSION["password"] = $passWord;
 $string = file_get_contents("../../resources/users.json");
 $json = json_decode($string, true);
 
-  $usernamedb=$json["users"][0]["name"];
+$usernamedb=$json["users"][0]["name"];
 $passworddb=$json["users"][0]["password"];
 
 

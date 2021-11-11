@@ -9,3 +9,5 @@
 6. Username print dinamically in dashboard.php
 7. New index.php created. LogOut function created + Session destroyed.
 8. redirection bug index.php fixed
+9. connect to bd json correcly and redirections working properly
+10. function time() bug fixed

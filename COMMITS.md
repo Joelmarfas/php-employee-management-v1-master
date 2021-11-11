@@ -12,3 +12,4 @@
 9. connect to bd json correcly and redirections working properly
 10. function time() bug fixed
 11. logout validation alert implemented
+12. encrypt.php created to validate encrypt function

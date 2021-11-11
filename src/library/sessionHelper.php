@@ -59,7 +59,7 @@ if($passworddb === $passWord && $usernamedb === $userName)
 }
 else
 {
-  header("Location: ../index.php");
+  header("Location: ../../index.php");
 }
 
 

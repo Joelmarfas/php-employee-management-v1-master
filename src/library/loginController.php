@@ -14,4 +14,4 @@ if (ini_get("session.use_cokie")) {
   );
 }
 session_destroy();
-header("Location: ../index.php");
+header("Location: ../../index.php");

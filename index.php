@@ -53,9 +53,9 @@
               </div>
               <input type="password" class="form-control" placeholder="password" name="password">
             </div>
-            <div class="alert alert-info" role="alert">
-              <?= $isLogout ? "You have succesfully logged out!":"" ?>
-            </div>
+
+            <?= $isLogout ?  '<div class="alert alert-info" id="logoutLabel" role="alert">You have succesfully logged out!</div>':"" ?>
+
             <div class="row align-items-center remember">
               <input type="checkbox">Remember Me
             </div>
@@ -75,7 +75,6 @@
       </div>
     </div>
   </div>
-
 </body>
 
 </html>

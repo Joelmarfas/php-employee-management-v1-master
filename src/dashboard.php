@@ -54,6 +54,8 @@ $userName = $_SESSION["username"]; //$_SESSION["username]; en linea 54.
       <?=$userName?>.
     </h1>
   </div> -->
+  <!-- <script src="../assets/js/index.js"></script> -->
+
 </body>
 
 </html>

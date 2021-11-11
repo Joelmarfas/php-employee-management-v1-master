@@ -31,7 +31,7 @@ function authUser()
   session_start();
 
 
-$userName = $_POST["username"];
+ $userName = $_POST["username"];
 $passWord = $_POST["password"];
 
 $_SESSION["username"] = $userName;

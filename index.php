@@ -1,3 +1,8 @@
+<?php
+  $isLogout = $_GET["logout"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,6 +52,9 @@
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
               <input type="password" class="form-control" placeholder="password" name="password">
+            </div>
+            <div class="alert alert-info" role="alert">
+              <?= $isLogout ? "You have succesfully logged out!":"" ?>
             </div>
             <div class="row align-items-center remember">
               <input type="checkbox">Remember Me

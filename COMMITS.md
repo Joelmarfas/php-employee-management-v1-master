@@ -11,3 +11,4 @@
 8. redirection bug index.php fixed
 9. connect to bd json correcly and redirections working properly
 10. function time() bug fixed
+11. logout validation alert implemented

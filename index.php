@@ -56,6 +56,8 @@
 
             <?= $isLogout ?  '<div class="alert alert-info" id="logoutLabel" role="alert">You have succesfully logged out!</div>':"" ?>
 
+            <div class="alert alert-danger d-none" role="alert" id="error"></div>
+
             <div class="row align-items-center remember">
               <input type="checkbox">Remember Me
             </div>

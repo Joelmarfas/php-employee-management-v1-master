@@ -79,7 +79,7 @@ $passWord = $_POST["password"];
           echo "Invalid Password";
         }
       } else {
-        echo "user not found";
+        echo "User Not Found";
       }
     }
 // "password": "$2y$10$nuh1LEwFt7Q2/wz9/CmTJO91stTBS4cRjiJYBY3sVCARnllI.wzBC",

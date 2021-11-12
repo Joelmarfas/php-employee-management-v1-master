@@ -2,7 +2,13 @@
 
 require_once("./sessionHelper.php");
 
-authuser();
+$username = $_POST["username"];
+$password = $_POST["password"];
+
+// echo $username;
+// echo $password;
+
+authUser();
 // header("Location: ./sessionHelper.php");
 
 

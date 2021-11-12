@@ -14,3 +14,4 @@
 11. logout validation alert implemented
 12. encrypt.php created to validate encrypt function
 13. Div deleted under password logout
+14. Code refactorized + Login JavaScript insted of PHP + verifay password

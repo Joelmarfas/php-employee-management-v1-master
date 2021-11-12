@@ -52,28 +52,43 @@ header("Location: ../../index.php?logout=true");
 function authUser()
 {
 
-  session_start();
-
+  // session_start();
+// LO QUE NOS VIENE POR EL POST
 $userName = $_POST["username"];
 $passWord = $_POST["password"];
+echo $userName;
+echo $passWord;
+// $_SESSION["username"] = $userName;
+// $_SESSION["password"] = $passWord;
 
-$_SESSION["username"] = $userName;
-$_SESSION["password"] = $passWord;
+  //Contect to DataBase GETTING DATA FROM JSON
+  $string = file_get_contents("../../resources/users.json");
+  $json = json_decode($string, true);
+  $users = $json["users"];
+  var_dump($users);
 
-// "password": "$2y$10$nuh1LEwFt7Q2/wz9/CmTJO91stTBS4cRjiJYBY3sVCARnllI.wzBC",
+  //TO CHECK IF USER IS IN DATABASE
+  include_once("loginManager.php");
+  foreach ($users as $user) {
+    if($user["name"] === $userName) {
+      echo "user registered";
 
-checkUser();
-// echo "username: ".$userName."<br/>";
-// echo "password: ".$passWord;
-// echo "<br/>";
-// echo "session username: ".$_SESSION["username"];
+      if(password_verify($passWord, $user["password"])) {
+        //All ok log in
+        session_start();
+        $_SESSION["username"] = $userName;
+        echo "Login Ok";
+      } else {
+        echo "Invalid Password";
+      }
 
-
-// echo "<pre>";
-// var_dump($json["users"][0]["name"]) ;
-// var_dump($json);
-
-
+    } else {
+      echo "user not found";
+    }
+  }
+  
+  // "password": "$2y$10$nuh1LEwFt7Q2/wz9/CmTJO91stTBS4cRjiJYBY3sVCARnllI.wzBC",
+//  header("Location: ./sessionHelper.php"); 
 }
 
 /**
@@ -82,30 +97,6 @@ checkUser();
  */
 function checkUser()
 {
-  //Contect to DataBase
-$userName = $_POST["username"];
-$passWord = $_POST["password"];
-
-$_SESSION["username"] = $userName;
-$_SESSION["password"] = $passWord;
-
-$string = file_get_contents("../../resources/users.json");
-$json = json_decode($string, true);
-
-$usernamedb=$json["users"][0]["name"];
-$passworddb=$json["users"][0]["password"];
-
-
-if($passworddb === $passWord && $usernamedb === $userName)
-{
-  // var_dump("Es correcto") ;
-  header("Location: ../dashboard.php");
-}
-else
-{
-  // echo "No es puto correcto";
-  header("Location: ../../index.php");
-}
 }
 
 /**
@@ -120,7 +111,6 @@ function destroySessionCookie()
  */
 function checkLoginError()
 {
-
 }
 
 /**

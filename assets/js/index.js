@@ -17,6 +17,7 @@ $.ajax ({
 
 })
 
+
 // $.post("./src/library/loginManager.php", data, function (response) {
 
 //   console.log(response)

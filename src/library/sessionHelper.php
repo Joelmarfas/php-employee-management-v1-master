@@ -51,13 +51,12 @@ header("Location: ../../index.php?logout=true");
  */
 function authUser()
 {
-
   // session_start();
 // LO QUE NOS VIENE POR EL POST
 $userName = $_POST["username"];
 $passWord = $_POST["password"];
-echo $userName;
-echo $passWord;
+// echo $userName;
+// echo $passWord;
 // $_SESSION["username"] = $userName;
 // $_SESSION["password"] = $passWord;
 
@@ -65,30 +64,26 @@ echo $passWord;
   $string = file_get_contents("../../resources/users.json");
   $json = json_decode($string, true);
   $users = $json["users"];
-  var_dump($users);
+  // var_dump($users);
 
   //TO CHECK IF USER IS IN DATABASE
-  include_once("loginManager.php");
-  foreach ($users as $user) {
-    if($user["name"] === $userName) {
-      echo "user registered";
-
-      if(password_verify($passWord, $user["password"])) {
-        //All ok log in
-        session_start();
-        $_SESSION["username"] = $userName;
-        echo "Login Ok";
+    foreach ($users as $user) {
+      if($user["name"] === $userName) {
+        // echo "user registered";
+        if(password_verify($passWord, $user["password"])) {
+          //All ok log in
+          session_start();
+          $_SESSION["username"] = $userName;
+          echo "Login Ok";
+        } else {
+          echo "Invalid Password";
+        }
       } else {
-        echo "Invalid Password";
+        echo "user not found";
       }
-
-    } else {
-      echo "user not found";
     }
-  }
-  
-  // "password": "$2y$10$nuh1LEwFt7Q2/wz9/CmTJO91stTBS4cRjiJYBY3sVCARnllI.wzBC",
-//  header("Location: ./sessionHelper.php"); 
+// "password": "$2y$10$nuh1LEwFt7Q2/wz9/CmTJO91stTBS4cRjiJYBY3sVCARnllI.wzBC",
+//  header("Location: ./sessionHelper.php");
 }
 
 /**

@@ -19,6 +19,7 @@
 16. login cases alerts and timeout validation added
 17. tablejsgrid branch created + git push --set-upstream origin tablejsgrid
 18. Empty jsgrid showup
-19. fetching json data into table done 
+19. fetching json data into table done
 20. jsgrid.js created
 21. Table columns titles changed
+22. Insert employee functionality done

@@ -7,12 +7,12 @@ $("#jsGrid").jsGrid({
   sorting: true,
   paging: true,
   autoload: true,
-  pageSize: 5,
+  pageSize: 10,
   pageButtonCount: 5,
   deleteConfirm: "Do you really want to delete data?",
   controller: {
     loadData: function(filter) {
-      console.log(filter);
+      // console.log(filter);
       return $.ajax({
         type: "GET",
         url: "../resources/employees.json",
@@ -20,29 +20,123 @@ $("#jsGrid").jsGrid({
         dataType: "json"
       });
     },
-    insertItem: function(item){
-      return $.ajax({
+    insertItem: function (item) {
+      var d = $.Deferred();
+
+      $.ajax({
         type: "POST",
-        url: "../resources/employees.json",
+        url: "../src/library/employeeController.php",
         data: item,
-        // dataType: "json"
+        success: function (data) {
+          console.log(data);
+          d.resolve(data);
+          // item["id"] = data;
+        },
+        error: function (xhr, exception) {
+          alert("Error: " + xhr + " " + exception);
+        },
       });
+      $("#jsGrid").jsGrid("render");
+      return d.promise();
     },
-    updateItem: function(item) {
-      return $.ajax({
-        type: "POST",
-        url: "../resources/employees.json",
-        data: item
-      });
-    },
-    deleteItem: function(item) {
-      return $.ajax({
-        type: "DELETE",
-        url: "../resources/employees.json",
-        data: item
-      });
-    },
+    // updateItem: function(item) {
+    //   return $.ajax({
+    //     type: "POST",
+    //     url: "../resources/employees.json",
+    //     data: item
+    //   });
+    // },
+    // deleteItem: function(item) {
+    //   return $.ajax({
+    //     type: "DELETE",
+    //     url: "../resources/employees.json",
+    //     data: item
+    //   });
+    // },
   },
+
+
+  // fields: [
+  //   { name: "id", title: "id" },
+  //   {
+  //     name: "name",
+  //     type: "text",
+  //     width: 100,
+  //     title: "Name",
+  //     validate: "required",
+  //   },
+  //   {
+  //     name: "email",
+  //     type: "text",
+  //     width: 150,
+  //     title: "Email",
+  //     validate: {
+  //       validator: "pattern",
+  //       message: "Invalid Email",
+  //       param:
+  //         "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$",
+  //     },
+  //   },
+  //   {
+  //     name: "age",
+  //     type: "number",
+  //     width: 50,
+  //     title: "Age",
+  //     validate: {
+  //       validator: "range",
+  //       message: function (value, item) {
+  //         return (
+  //           'The client age should be between 18 and 99. Entered age is "' +
+  //           value +
+  //           '" is out of specified range.'
+  //         );
+  //       },
+  //       param: [18, 99],
+  //     },
+  //   },
+  //   {
+  //     name: "streetAddress",
+  //     type: "number",
+  //     width: 60,
+  //     title: "Street No.",
+  //     validate: "required",
+  //   },
+  //   {
+  //     name: "city",
+  //     type: "text",
+  //     width: 100,
+  //     title: "City",
+  //     validate: "required",
+  //   },
+  //   {
+  //     name: "state",
+  //     type: "text",
+  //     width: 50,
+  //     title: "State",
+  //     validate: "required",
+  //   },
+  //   {
+  //     name: "postalCode",
+  //     type: "number",
+  //     width: 50,
+  //     title: "Postal Code",
+  //     validate: "required",
+  //   },
+  //   {
+  //     name: "phoneNumber",
+  //     type: "number",
+  //     width: 65,
+  //     title: "Phone Number",
+  //     validate: "required",
+  //   },
+  //   { type: "control" },
+  // ],
+
+
+
+
+
+
   fields: [{
       name: "id",
       type: "text",
@@ -109,7 +203,7 @@ $("#jsGrid").jsGrid({
       width: 150,
       // validate: "required"
     },
-   
+
     // {
     //   name: "gender",
     //   type: "select",

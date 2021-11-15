@@ -29,11 +29,11 @@ checkSession();
     href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
   <title>Document</title>
-  <!-- <style>
+  <style>
   .hide {
     display: none;
   }
-  </style> -->
+  </style>
 
 </head>
 

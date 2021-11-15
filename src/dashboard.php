@@ -29,6 +29,9 @@ $userName = $_SESSION["username"]; //$_SESSION["username]; en linea 54.
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="./assets/css/login.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
+  <link type="text/css" rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
   <title>Document</title>
 </head>
 
@@ -49,6 +52,8 @@ $userName = $_SESSION["username"]; //$_SESSION["username]; en linea 54.
       </li>
     </ul>
   </header>
+
+  <div id="grid_table"></div>
   <!-- <div>
     <h1>Welcome to the Dashboard,
       <?=$userName?>.
@@ -56,6 +61,137 @@ $userName = $_SESSION["username"]; //$_SESSION["username]; en linea 54.
   </div> -->
   <!-- <script src="../assets/js/index.js"></script> -->
 
+  <script src="">
+  $("#grid_table").jsGrid({
+    width: "100%",
+    height: "400px",
+    filtering: true,
+    inserting: true,
+    editing: true,
+    sorting: true,
+    paging: true,
+    autoload: true,
+    pageSize: 10,
+    pageButtonCount: 5,
+    deleteConfirm: "Do you really want to delete data?",
+    fields: [{
+        name: "id",
+        type: "hidden",
+        css: "hide"
+      },
+      {
+        name: "first_name",
+        type: "text",
+        width: 150,
+        validate: "required"
+      },
+      {
+        name: "last_name",
+        type: "text",
+        width: 150,
+        validate: "required"
+      },
+      {
+        name: "age",
+        type: "text",
+        width: 50,
+        validate: function(value) {
+          if (value > 0) {
+            return true;
+          }
+        }
+      },
+      {
+        name: "gender",
+        type: "select",
+        items: [{
+            Name: "",
+            Id: ""
+          },
+          {
+            Name: "Male",
+            Id: "male"
+          },
+          {
+            Name: "Female",
+            Id: "female"
+          }
+        ],
+        valueField: "Id",
+        textField: "Name",
+        validate: "required"
+      }
+    ]
+  })
+  </script>
+
+  <!-- <script>
+$("#grid_table").jsGrid({
+
+  width: "100%",
+  height: "400px",
+
+  filtering: true,
+  inserting: true,
+  editing: true,
+  sorting: true,
+  paging: true,
+  autoload: true,
+  pageSize: 10,
+  pageButtonCount: 5,
+  deleteConfirm: "Do you really want to delete data?",
+
+  fields: [{
+      name: "id",
+      type: "hidden",
+      css: "hide"
+    },
+    {
+      name: "first_name",
+      type: "text",
+      width: 150,
+      validate: "required"
+    },
+    {
+      name: "last_name",
+      type: "text",
+      width: 150,
+      validate: "required"
+    },
+    {
+      name: "age",
+      type: "text",
+      width: 50,
+      validate: function(value) {
+        if (value > 0) {
+          return true;
+        }
+      }
+    },
+    {
+      name: "gender",
+      type: "select",
+      items: [{
+          Name: "",
+          Id: ''
+        },
+        {
+          Name: "Male",
+          Id: 'male'
+        },
+        {
+          Name: "Female",
+          Id: 'female'
+        }
+      ],
+      valueField: "Id",
+      textField: "Name",
+      validate: "required"
+    },
+  ]
+
+});
+</script> -->
 </body>
 
 </html>

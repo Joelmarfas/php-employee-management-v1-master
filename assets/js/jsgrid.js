@@ -7,7 +7,7 @@ $("#jsGrid").jsGrid({
   sorting: true,
   paging: true,
   autoload: true,
-  pageSize: 10,
+  pageSize: 5,
   pageButtonCount: 5,
   deleteConfirm: "Do you really want to delete data?",
   controller: {
@@ -19,11 +19,33 @@ $("#jsGrid").jsGrid({
         data: filter,
         dataType: "json"
       });
-    }
+    },
+    insertItem: function(item){
+      return $.ajax({
+        type: "POST",
+        url: "../resources/employees.json",
+        data: item,
+        // dataType: "json"
+      });
+    },
+    updateItem: function(item) {
+      return $.ajax({
+        type: "POST",
+        url: "../resources/employees.json",
+        data: item
+      });
+    },
+    deleteItem: function(item) {
+      return $.ajax({
+        type: "DELETE",
+        url: "../resources/employees.json",
+        data: item
+      });
+    },
   },
   fields: [{
       name: "id",
-      type: "hidden",
+      type: "text",
       css: "hide"
     },
     {
@@ -38,7 +60,7 @@ $("#jsGrid").jsGrid({
       title: "Email",
       type: "text",
       width: 150,
-      validate: "required"
+      // validate: "required"
     },
     {
       name: "age",
@@ -57,35 +79,35 @@ $("#jsGrid").jsGrid({
       title: "Street Nº",
       type: "text",
       width: 150,
-      validate: "required"
+      // validate: "required"
     },
     {
       name: "city",
       title: "City",
       type: "text",
       width: 150,
-      validate: "required"
+      // validate: "required"
     },
     {
       name: "state",
       title: "State",
       type: "text",
       width: 150,
-      validate: "required"
+      // validate: "required"
     },
     {
       name: "postalCode",
       title: "Postal Code",
       type: "text",
       width: 150,
-      validate: "required"
+      // validate: "required"
     },
     {
       name: "phoneNumber",
       title: "Phone Nº",
       type: "text",
       width: 150,
-      validate: "required"
+      // validate: "required"
     },
    
     // {

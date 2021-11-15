@@ -21,3 +21,4 @@
 18. Empty jsgrid showup
 19. fetching json data into table done 
 20. jsgrid.js created
+21. Table columns titles changed

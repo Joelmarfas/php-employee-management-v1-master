@@ -28,18 +28,21 @@ $("#jsGrid").jsGrid({
     },
     {
       name: "name",
+      title: "Name",
       type: "text",
       width: 150,
       validate: "required"
     },
     {
-      name: "lastName",
+      name: "email",
+      title: "Email",
       type: "text",
       width: 150,
       validate: "required"
     },
     {
       name: "age",
+      title: "Age",
       type: "text",
       width: 50,
       validate: function(value) {
@@ -49,25 +52,62 @@ $("#jsGrid").jsGrid({
       }
     },
     {
-      name: "gender",
-      type: "select",
-      items: [{
-          Name: "",
-          Id: ""
-        },
-        {
-          Name: "Male",
-          Id: "male"
-        },
-        {
-          Name: "Female",
-          Id: "female"
-        }
-      ],
-      valueField: "Id",
-      textField: "Name",
+      id: "",
+      name: "streetAddress",
+      title: "Street Nº",
+      type: "text",
+      width: 150,
       validate: "required"
     },
+    {
+      name: "city",
+      title: "City",
+      type: "text",
+      width: 150,
+      validate: "required"
+    },
+    {
+      name: "state",
+      title: "State",
+      type: "text",
+      width: 150,
+      validate: "required"
+    },
+    {
+      name: "postalCode",
+      title: "Postal Code",
+      type: "text",
+      width: 150,
+      validate: "required"
+    },
+    {
+      name: "phoneNumber",
+      title: "Phone Nº",
+      type: "text",
+      width: 150,
+      validate: "required"
+    },
+   
+    // {
+    //   name: "gender",
+    //   type: "select",
+    //   items: [{
+    //       Name: "",
+    //       Id: ""
+    //     },
+    //     {
+    //       Name: "Male",
+    //       Id: "man"
+    //     },
+    //     {
+    //       Name: "Female",
+    //       Id: "woman"
+    //     }
+    //   ],
+    //   valueField: "Id",
+    //   textField: "Name",
+    //   validate: "required"
+    // },
     {
       type: "control"
     }

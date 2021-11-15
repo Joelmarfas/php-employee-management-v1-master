@@ -17,3 +17,5 @@
 14. Code refactorized + Login JavaScript insted of PHP + verifay password
 15. Code refactorized sessionhelper and loginManager before switch funtionality
 16. login cases alerts and timeout validation added
+17. tablejsgrid branch created + git push --set-upstream origin tablejsgrid
+18. Empty jsgrid showup

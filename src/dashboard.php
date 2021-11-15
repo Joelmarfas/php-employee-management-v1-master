@@ -29,11 +29,17 @@ checkSession();
     href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
   <title>Document</title>
+  <style>
+  .hide {
+    display: none;
+  }
+  </style>
+
 </head>
 
 <body>
   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Alumni/Employee Dashboard</a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Alumni Dashboard</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
       data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -50,84 +56,7 @@ checkSession();
   </header>
   <h1><?php echo "Welcome Papafrita, ". $_SESSION["username"]?></h1>
   <div id="jsGrid"></div>
-  <script>
-  $("#jsGrid").jsGrid({
-    width: "100%",
-    height: "400px",
-    filtering: true,
-    inserting: true,
-    editing: true,
-    sorting: true,
-    paging: true,
-    autoload: true,
-    pageSize: 10,
-    pageButtonCount: 5,
-    deleteConfirm: "Do you really want to delete data?",
-    controller: {
-      loadData: function() {
-        var d = $.Deferred();
-        $.ajax({
-          url: "../resources/employees.json",
-          dataType: "json"
-        }).done(function(response) {
-          d.resolve(response.value);
-        });
-        return d.promise();
-      }
-    },
-    fields: [{
-        name: "id",
-        type: "hidden",
-        css: "hide"
-      },
-      {
-        name: "first_name",
-        type: "text",
-        width: 150,
-        validate: "required"
-      },
-      {
-        name: "last_name",
-        type: "text",
-        width: 150,
-        validate: "required"
-      },
-      {
-        name: "age",
-        type: "text",
-        width: 50,
-        validate: function(value) {
-          if (value > 0) {
-            return true;
-          }
-        }
-      },
-      {
-        name: "gender",
-        type: "select",
-        items: [{
-            Name: "",
-            Id: ""
-          },
-          {
-            Name: "Male",
-            Id: "male"
-          },
-          {
-            Name: "Female",
-            Id: "female"
-          }
-        ],
-        valueField: "Id",
-        textField: "Name",
-        validate: "required"
-      },
-      {
-        type: "control"
-      }
-    ]
-  })
-  </script>
+  <script src="../assets/js/jsgrid.js"></script>
 </body>
 
 </html>

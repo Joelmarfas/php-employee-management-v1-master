@@ -10,6 +10,8 @@ $("#jsGrid").jsGrid({
   pageSize: 10,
   pageButtonCount: 5,
   deleteConfirm: "Do you really want to delete data?",
+
+
   controller: {
     loadData: function(filter) {
       // console.log(filter);
@@ -39,6 +41,26 @@ $("#jsGrid").jsGrid({
       $("#jsGrid").jsGrid("render");
       return d.promise();
     },
+
+    //DELETE EMPLOYEE
+    deleteItem: function (item) {
+      var d = $.Deferred();
+      $.ajax({
+        type: "DELETE",
+        url: "../src/library/employeeController.php",
+        data: { id: item.id },
+        success: function (data) {
+          d.resolve(data);
+        },
+        error: function (xhr, exception) {
+          alert("Error: " + xhr + " " + exception);
+        },
+      });
+      return d.promise();
+    },
+
+    
+
     // updateItem: function(item) {
     //   return $.ajax({
     //     type: "POST",

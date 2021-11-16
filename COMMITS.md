@@ -23,3 +23,4 @@
 20. jsgrid.js created
 21. Table columns titles changed
 22. Insert employee functionality done
+23. delete funtion done

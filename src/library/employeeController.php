@@ -12,3 +12,11 @@ if ($method == 'POST') {
     addEmployee($_REQUEST);
     // var_dump($_REQUEST);
 }
+
+/**
+ * Delete Employee
+ */
+if ($method == 'DELETE') {
+  $_delete = file_get_contents('php://input');
+  $delete = deleteEmployee(substr($_delete, 3));
+}

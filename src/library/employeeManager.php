@@ -36,6 +36,21 @@ var_dump($employeesCollection);
 function deleteEmployee(string $id)
 {
 // TODO implement it
+$employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
+    // var_dump($employeesCollection);
+
+
+    for ($i = 0; $i < count($employeesCollection); $i++) {
+        if ($employeesCollection[$i]['id'] == $id) {
+            // echo $i;
+            array_splice($employeesCollection, $i, 1);
+        } else {
+            echo "not";
+        }
+    }
+
+    file_put_contents('../../resources/employees.json', json_encode($employeesCollection, JSON_PRETTY_PRINT));
+    return true;
 }
 
 

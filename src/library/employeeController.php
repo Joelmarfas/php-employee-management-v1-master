@@ -41,3 +41,11 @@ if ($method == 'PUT') {
   //     header('Location: ../dashboard.php');
   // }
 }
+
+if ($method == 'PATCH') {
+}
+
+if ($method == 'GET') {
+    $getEmployee = getEmployee($_GET['id']);
+    //header('Location: ../employee.php?id='.$_GET['id']); 
+}

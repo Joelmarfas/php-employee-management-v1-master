@@ -60,3 +60,4 @@ checkSession();
 </body>
 
 </html>
+<?php include_once '../assets/html/footer.html' ?>

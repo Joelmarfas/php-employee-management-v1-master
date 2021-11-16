@@ -76,6 +76,15 @@ $employeesCollection = json_decode(file_get_contents('../../resources/employees.
 function getEmployee(string $id)
 {
 // TODO implement it
+$employeesCollection = json_decode(file_get_contents('../../resources/employees.json'), true); //convierte a varible de php (array)
+
+    foreach ($employeesCollection as $index => $employee) {
+
+        if ($employee['id'] == $id) {
+            echo json_encode($employee);
+        }
+    }
+    return false;
 }
 
 
@@ -85,9 +94,10 @@ function removeAvatar($id)
 }
 
 
-// function getQueryStringParameters(): array
+function getQueryStringParameters(): array
 {
 // TODO implement it
+return [];
 }
 
 function getNextIdentifier(array $employeesCollection): int

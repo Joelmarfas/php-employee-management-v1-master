@@ -59,7 +59,24 @@ $("#jsGrid").jsGrid({
       return d.promise();
     },
 
-    
+//UPDATE USER
+updateItem: function (item) {
+  var d = $.Deferred();
+  $.ajax({
+    type: "PUT",
+    url: "../src/library/employeeController.php",
+    data: item,
+    success: function (data) {
+      console.log(data);
+      d.resolve(data);
+    },
+    error: function (xhr, exception) {
+      alert("Error: " + xhr + " " + exception);
+    },
+  });
+  return d.promise();
+},
+
 
     // updateItem: function(item) {
     //   return $.ajax({

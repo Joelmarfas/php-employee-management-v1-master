@@ -24,3 +24,4 @@
 21. Table columns titles changed
 22. Insert employee functionality done
 23. delete funtion done
+24. update function done
